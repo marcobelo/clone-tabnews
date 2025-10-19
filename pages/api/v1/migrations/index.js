@@ -6,7 +6,7 @@ async function migrations(request, response) {
   const allowedMethods = ["GET", "POST"];
   if (!allowedMethods.includes(request.method)) {
     response.setHeader("Allow", allowedMethods);
-    return response.status(405).end({
+    return response.status(405).json({
       error: `Method "${request.method}" not allowed`,
     });
   }
